@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pengalaman PKL</title>
+  <style>
+    :root{--bg:#f3f6fb;--card:#ffffff;--muted:#6b7280;--accent:#0f172a}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; margin:0;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;background:linear-gradient(180deg,var(--bg),#eef2ff);padding:10px}
+    .wrap{width:100%;max-width:600px;padding:12px;margin:auto}
+    .card{background:var(--card);border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(15,23,42,.08)}
+    h1{margin:0 0 6px;font-size:22px;color:var(--accent)}
+    p.lead{margin:0 0 18px;color:var(--muted)}
+    .questions{display:grid;grid-template-columns:1fr;gap:14px}}
+    .q{padding:14px;border-radius:10px;border:1px solid #eef2f8}
+    .q h3{margin:0 0 8px;font-size:15px;text-align:center}
+
+    /* Centered option buttons */
+    .opts{display:flex;gap:10px;justify-content:center;align-items:center}
+    .opt-btn{appearance:none;border:1px solid #e6ecf8;background:#fff;padding:10px 14px;border-radius:999px;cursor:pointer;min-width:140px;text-align:center}
+    .opt-btn input{display:none}
+    .opt-btn.active{background:linear-gradient(90deg,#eef2ff,#e8f1ff);border-color:#cfe3ff;box-shadow:0 6px 18px rgba(14,30,60,.06)}
+
+    textarea.comment{width:100%;min-height:72px;margin-top:10px;padding:10px;border-radius:8px;border:1px solid #e6eef8;resize:vertical}
+
+    .actions{display:flex;gap:8px;justify-content:center;margin-top:14px}
+    button.primary{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer}
+    button.ghost{background:#fff;border:1px solid #e6ecf8;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+    .result{margin-top:18px;padding:14px;border-radius:10px;background:#0b1220;color:#e6eef8;white-space:pre-wrap}
+
+    /* Responsive */
+    
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Pengalaman PKL</h1>
+      <p class="lead">Pilih jawaban tiap pertanyaan. Tombol jawaban berada di tengah—mudah dijawab dengan satu ketuk/klik.</p>
+
+      <form id="survey">
+        <div class="questions">
+
+          <div class="q" data-qid="1">
+            <h3>1. Apakah kamu ramah dengan staf di sana?</h3>
+            <div class="opts">
+              <button type="button" class="opt-btn" data-value="Ya">Ya</button>
+              <button type="button" class="opt-btn" data-value="Netral">Netral</button>
+              <button type="button" class="opt-btn" data-value="Tidak">Tidak</button>
+            </div>
+            <textarea class="comment" placeholder="(opsional) Tambahkan catatan singkat..." aria-label="Catatan 1"></textarea>
+          </div>
+
+          <div class="q" data-qid="2">
+            <h3>2. Apakah lingkungan kerjamu nyaman?</h3>
+            <div class="opts">
+              <button type="button" class="opt-btn" data-value="Ya">Ya</button>
+              <button type="button" class="opt-btn" data-value="Netral">Netral</button>
+              <button type="button" class="opt-btn" data-value="Tidak">Tidak</button>
+            </div>
+            <textarea class="comment" placeholder="(opsional) Tambahkan catatan singkat..." aria-label="Catatan 2"></textarea>
+          </div>
+
+          <div class="q" data-qid="3">
+            <h3>3. Apakah kamu ingin bertahan di tempat PKLmu yang sekarang?</h3>
+            <div class="opts">
+              <button type="button" class="opt-btn" data-value="Ya">Ya</button>
+              <button type="button" class="opt-btn" data-value="Netral">Netral</button>
+              <button type="button" class="opt-btn" data-value="Tidak">Tidak</button>
+            </div>
+            <textarea class="comment" placeholder="(opsional) Tambahkan catatan singkat..." aria-label="Catatan 3"></textarea>
+          </div>
+
+          <div class="q" data-qid="4">
+            <h3>4. Apakah kamu nyaman dengan lingkungan tersebut?</h3>
+            <div class="opts">
+              <button type="button" class="opt-btn" data-value="Ya">Ya</button>
+              <button type="button" class="opt-btn" data-value="Netral">Netral</button>
+              <button type="button" class="opt-btn" data-value="Tidak">Tidak</button>
+            </div>
+            <textarea class="comment" placeholder="(opsional) Tambahkan catatan singkat..." aria-label="Catatan 4"></textarea>
+          </div>
+
+          <div class="q" data-qid="5">
+            <h3>5. Apakah staf biasanya baik denganmu?</h3>
+            <div class="opts">
+              <button type="button" class="opt-btn" data-value="Ya">Ya</button>
+              <button type="button" class="opt-btn" data-value="Netral">Netral</button>
+              <button type="button" class="opt-btn" data-value="Tidak">Tidak</button>
+            </div>
+            <textarea class="comment" placeholder="(opsional) Tambahkan catatan singkat..." aria-label="Catatan 5"></textarea>
+          </div>
+
+          <!-- Extra question to make 6 total -->
+          <div class="q" data-qid="6">
+            <h3>6. Apakah kamu mendapat bimbingan yang cukup selama PKL?</h3>
+            <div class="opts">
+              <button type="button" class="opt-btn" data-value="Ya">Ya</button>
+              <button type="button" class="opt-btn" data-value="Netral">Netral</button>
+              <button type="button" class="opt-btn" data-value="Tidak">Tidak</button>
+            </div>
+            <textarea class="comment" placeholder="(opsional) Tambahkan catatan singkat..." aria-label="Catatan 6"></textarea>
+          </div>
+
+        </div>
+
+        <div class="actions">
+          <button type="button" class="primary" id="generate">Tampilkan Hasil</button>
+          <button type="button" class="ghost" id="reset">Reset</button>
+        </div>
+
+        <div class="result" id="result" aria-live="polite">Hasil akan muncul di sini setelah klik "Tampilkan Hasil".</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Make option buttons toggle per question and centered
+    document.querySelectorAll('.q').forEach(q => {
+      const opts = q.querySelectorAll('.opt-btn');
+      opts.forEach(b => {
+        b.addEventListener('click', ()=>{
+          opts.forEach(x=>x.classList.remove('active'));
+          b.classList.add('active');
+        });
+      });
+    });
+
+    document.getElementById('generate').addEventListener('click', ()=>{
+      const questions = Array.from(document.querySelectorAll('.q'));
+      const answers = [];
+      let incomplete = 0;
+
+      questions.forEach(q=>{
+        const id = q.getAttribute('data-qid');
+        const sel = q.querySelector('.opt-btn.active');
+        const comment = q.querySelector('textarea.comment').value.trim();
+        if(!sel) incomplete++;
+        answers.push({id,question:q.querySelector('h3').innerText,answer: sel? sel.getAttribute('data-value') : null, note: comment});
+      });
+
+      // Build result text
+      let out = '';
+      if(incomplete>0) out += `(* ${incomplete} pertanyaan belum dipilih — hasil akan tetap menampilkan pilihan yang ada)\n\n`;
+
+      answers.forEach(a=>{
+        out += `${a.id}. ${a.question}\nJawaban: ${a.answer? a.answer : '(belum dipilih)'}\n`;
+        if(a.note) out += `Catatan: ${a.note}\n`;
+        out += '\n';
+      });
+
+      // Short summary
+      const summary = answers.map(a=>`${a.id}:${a.answer? a.answer[0] : '-'}\`).join(' | ');
+
+      out += `Ringkasan singkat: ${summary}`;
+
+      document.getElementById('result').textContent = out;
+    });
+
+    document.getElementById('reset').addEventListener('click', ()=>{
+      document.querySelectorAll('.opt-btn.active').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('textarea.comment').forEach(t=>t.value='');
+      document.getElementById('result').textContent = 'Hasil akan muncul di sini setelah klik "Tampilkan Hasil".';
+    });
+  </script>
+</body>
+</html>
+>
